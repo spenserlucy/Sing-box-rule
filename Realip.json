@@ -1,0 +1,635 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": false
+  },
+"experimental": {
+    "cache_file": {
+        "enabled": true,
+        "path": "cache.db",
+        "cache_id": "ctc"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "direct",
+      "default_mode": "Rule"
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_resolver-tx",
+        "address": "119.29.29.29",
+        "detour": "direct"
+      },
+      {
+        "tag": "local-dns",
+        "address": "https://120.53.53.53/dns-query",
+        "address_resolver": "dns_resolver-tx",
+        "detour": "direct"
+      },
+      {
+        "tag": "google",
+        "address": "https://162.159.36.1/dns-query",
+        "address_resolver": "dns_resolver-tx",
+        "address_strategy": "ipv4_only",
+        "client_subnet": "1.0.1.0"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://refused"
+      }
+    ],
+    "rules": [
+      {
+        "outbound": "any",
+        "server": "local-dns"
+      },
+      {
+        "query_type": "HTTPS",
+        "server": "block"
+      },
+      {
+        "outbound": "google",
+        "server": "google"
+      },
+      {
+        "clash_mode": "Direct",
+        "server": "local-dns"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "Binance",
+          "OKX",
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch",
+          "geosite-gfw",
+          "YouTube",
+          "geosite-geolocation-!cn"
+        ],
+        "server": "google"
+      },
+      {
+        "rule_set": [
+          "ChinaMax",
+          "geosite-cn",
+          "geosite-category-games@cn",
+          "geosite-geolocation-cn",
+          "geosite-private",
+          "geosite-apple@cn",
+          "geoip-cn"
+        ],
+        "server": "local-dns"
+      }
+    ],
+    "client_subnet": "42.239.205.0",
+    "strategy": "ipv4_only",
+    "final": "google"
+  },
+  "inbounds": [
+    {
+      "type": "direct",
+      "tag": "dns-in",
+      "listen": "::",
+      "listen_port": 5333
+    },
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "singbox",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "mtu": 9000,
+      "stack": "system",
+      "auto_route": true,
+      "sniff": true,
+      "sniff_override_destination": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": false,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "inbound": "dns-in",
+        "outbound": "dns-out"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "protocol": "quic",
+        "outbound": "block"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "ip_is_private": true
+          },
+          {
+            "domain": "geosite-cn"
+          }
+        ],
+        "outbound": "direct"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "outboundTag": "dns-out"
+          }
+        ],
+        "outbound": "dns-out"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "Proxy"
+      },
+      {
+        "rule_set": [
+          "AWAvenue-Ads-Rule",
+          "AdGuardSDNSFilter"
+        ],
+        "outbound": "block"
+      },
+      {
+        "rule_set": [
+          "Binance",
+          "OKX"
+        ],
+        "outbound": "BinOKX"
+      },
+      {
+        "rule_set": [
+          "YouTube"
+        ],
+        "outbound": "Video"
+      },
+      {
+        "rule_set": [
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch"
+        ],
+        "outbound": "USRule"
+      },
+      {
+        "rule_set": [
+          "ChinaMax",
+          "geosite-cn",
+          "geosite-category-games@cn",
+          "geosite-private",
+          "geosite-apple@cn"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "ip_is_private": true,
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-gfw",
+        "outbound": "Proxy"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          },
+          {
+            "rule_set": "geoip-cn",
+            "invert": true
+          }
+        ],
+        "outbound": "Proxy"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "Binance",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "OKX",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "PayPal",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "OpenAI",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "Gemini",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "GoogleVoice",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "GoogleSearch",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "YouTube",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "ChinaMax",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-cn",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-category-games@cn",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-private",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-apple@cn",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geoip-cn",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "geosite-geolocation-!cn",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
+      },
+      {
+        "tag": "geosite-gfw",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "tag": "AWAvenue-Ads-Rule",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "AdGuardSDNSFilter",
+        "type": "remote",
+        "format": "binary",
+        "update_interval": "1d",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Proxy"
+ },
+ "outbounds": [
+ {
+      "tag": "Proxy",
+      "outbounds": [
+        "MapleCloud",
+        "CTC200",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    },
+    {
+      "tag": "BinOKX",
+      "outbounds": [
+        "TW",
+        "SG",
+        "JP",
+        "KO",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "TW"
+    },
+    {
+      "tag": "USRule",
+      "outbounds": [
+        "US",
+        "USS",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "US"
+    },
+    {
+      "tag": "Video",
+      "outbounds": [
+        "MapleCloud",
+        "CTC200",
+        "Select"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "MapleCloud"
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "TW",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "台湾|TW|Taiwan"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "tolerance": 50,
+      "tag": "HK",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇭🇰|香港|HK|Hong"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "SG",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇸🇬|新加坡|SG|狮城|Singapore"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "JP",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇯🇵|日本|JP|Japan"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "KO",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇰🇷|KO|韩国|Korea"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "US",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "🇺🇸|美国|US|United States"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "selector",
+      "tag": "USS",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+             "🇺🇸|美国|US|United States"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "MapleCloud",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "HongKong|Taiwan|Japan|Singapore"
+          ]
+        }
+      ]
+    },
+    {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "CTC200",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "倍率"
+          ]
+        }
+      ]
+    },
+       {
+      "type": "selector",
+      "tag": "Select",
+      "outbounds": [
+        "{all}"
+      ]
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    }
+  ]
+}
