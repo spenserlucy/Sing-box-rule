@@ -36,7 +36,7 @@
         "tag": "google",
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "address_strategy": "ipv4_only"
+        "detour": "Proxy"
       },
       {
         "tag": "block",
@@ -97,7 +97,7 @@
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m0s",
-    "detour": "out-direct"
+    "detour": "Proxy"
   },
   "inbounds": [
     {
