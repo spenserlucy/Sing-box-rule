@@ -93,7 +93,7 @@
           "AdGuardSDNSFilter",
           "geosite-category-ads-all"
         ],
-        "outbound": "block"
+        "server": "block"
       }
     ],
     "client_subnet": "42.239.205.0",
