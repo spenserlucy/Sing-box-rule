@@ -36,8 +36,7 @@
         "tag": "google",
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "address_strategy": "ipv4_only",
-        "client_subnet": "1.0.1.0"
+        "address_strategy": "ipv4_only"
       },
       {
         "tag": "block",
@@ -47,11 +46,7 @@
     "rules": [
       {
         "outbound": "any",
-        "server": "local-dns"
-      },
-      {
-        "outbound": "google",
-        "server": "google"
+        "server": "dns_resolver-tx"
       },
       {
         "clash_mode": "Direct",
@@ -96,6 +91,13 @@
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
     "final": "google"
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m0s",
+    "detour": "out-direct"
   },
   "inbounds": [
     {
