@@ -238,7 +238,8 @@
       {
         "rule_set": [
           "AWAvenue-Ads-Rule",
-          "AdGuardSDNSFilter"
+          "AdGuardSDNSFilter",
+          "geosite-category-ads-all"
         ],
         "outbound": "block"
       }
