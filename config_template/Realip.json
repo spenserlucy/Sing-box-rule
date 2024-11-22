@@ -411,7 +411,19 @@
     "final": "Proxy"
  },
  "outbounds": [
- {
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
       "tag": "Proxy",
       "outbounds": [
         "MapleCloud",
@@ -620,18 +632,6 @@
       "outbounds": [
         "{all}"
       ]
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
   ]
 }
