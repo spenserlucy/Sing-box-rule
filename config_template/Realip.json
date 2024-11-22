@@ -86,6 +86,14 @@
       {
         "query_type": "HTTPS",
         "server": "block"
+      },
+      {
+        "rule_set": [
+          "AWAvenue-Ads-Rule",
+          "AdGuardSDNSFilter",
+          "geosite-category-ads-all"
+        ],
+        "outbound": "block"
       }
     ],
     "client_subnet": "42.239.205.0",
@@ -230,7 +238,8 @@
       {
         "rule_set": [
           "AWAvenue-Ads-Rule",
-          "AdGuardSDNSFilter"
+          "AdGuardSDNSFilter",
+          "geosite-category-ads-all"
         ],
         "outbound": "block"
       }
@@ -388,13 +397,33 @@
         "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
         "update_interval": "1d",
         "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
       }
     ],
     "auto_detect_interface": true,
     "final": "Proxy"
  },
  "outbounds": [
- {
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
       "tag": "Proxy",
       "outbounds": [
         "MapleCloud",
@@ -603,18 +632,6 @@
       "outbounds": [
         "{all}"
       ]
-    },
-    {
-      "type": "direct",
-      "tag": "direct"
-    },
-    {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
-      "type": "block",
-      "tag": "block"
     }
   ]
 }
