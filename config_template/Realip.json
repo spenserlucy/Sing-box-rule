@@ -36,7 +36,7 @@
         "tag": "google",
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "detour": "Proxy"
+        "detour": "out-proxy"
       },
       {
         "tag": "block",
@@ -86,7 +86,15 @@
       {
         "query_type": "HTTPS",
         "server": "block"
-      }
+      },
+      {
+        "rule_set": [
+          "geosite-category-ads-all",
+          "AdGuardSDNSFilter",
+          "AWAvenue-Ads-Rule"
+        ],
+        "server": "block"
+      },
     ],
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
@@ -97,35 +105,25 @@
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m0s",
-    "detour": "Proxy"
+    "detour": "out-proxy"
   },
   "inbounds": [
-    {
-      "type": "direct",
-      "tag": "dns-in",
-      "listen": "::",
-      "listen_port": 5333
-    },
-    {
+     {
       "tag": "tun-in",
       "type": "tun",
-      "interface_name": "singbox",
-      "address": [
-        "172.19.0.1/30"
-      ],
+      "interface_name": "singbox-tun",
+      "inet4_address": "172.19.0.1/30",
       "mtu": 9000,
-      "stack": "system",
+      "stack": "mixed",
       "auto_route": true,
-      "sniff": true,
-      "sniff_override_destination": true,
       "strict_route": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": false,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
+      "sniff": true
+    },
+    {
+      "tag": "socks-in",
+      "type": "socks",
+      "listen": "::",
+      "listen_port": 5319
     }
   ],
   "route": {
@@ -170,7 +168,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "rule_set": [
@@ -211,7 +209,7 @@
       },
       {
         "rule_set": "geosite-gfw",
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "type": "logical",
@@ -225,7 +223,7 @@
             "invert": true
           }
         ],
-        "outbound": "Proxy"
+        "outbound": "out-proxy"
       },
       {
         "rule_set": [
@@ -387,6 +385,14 @@
         "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
         "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "update_interval": "10d",
         "download_detour": "direct"
       }
     ],
@@ -615,6 +621,26 @@
     {
       "type": "block",
       "tag": "block"
+    },
+    {
+      "tag": "out-proxy",
+      "type": "selector",
+      "outbounds": [
+        "proxy-overtls"
+      ],
+      "default": "proxy-overtls"
+    },
+    {
+      "type": "socks",
+      "tag": "proxy-overtls",
+      "server": "127.0.0.1",
+      "server_port": 765,
+      "version": "5",
+      "network": "tcp",
+      "udp_over_tcp": {
+        "enabled": false,
+        "version": 2
+      }
     }
   ]
 }
