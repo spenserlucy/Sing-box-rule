@@ -50,10 +50,6 @@
         "server": "local-dns"
       },
       {
-        "query_type": "HTTPS",
-        "server": "block"
-      },
-      {
         "outbound": "google",
         "server": "google"
       },
@@ -91,6 +87,10 @@
           "geoip-cn"
         ],
         "server": "local-dns"
+      },
+      {
+        "query_type": "HTTPS",
+        "server": "block"
       }
     ],
     "client_subnet": "42.239.205.0",
@@ -172,13 +172,6 @@
       },
       {
         "rule_set": [
-          "AWAvenue-Ads-Rule",
-          "AdGuardSDNSFilter"
-        ],
-        "outbound": "block"
-      },
-      {
-        "rule_set": [
           "Binance",
           "OKX"
         ],
@@ -231,6 +224,13 @@
           }
         ],
         "outbound": "Proxy"
+      },
+      {
+        "rule_set": [
+          "AWAvenue-Ads-Rule",
+          "AdGuardSDNSFilter"
+        ],
+        "outbound": "block"
       }
     ],
     "rule_set": [
