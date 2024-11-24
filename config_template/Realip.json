@@ -1,7 +1,7 @@
 {
   "log": {
     "disabled": false,
-    "level": "info",
+    "level": "warn",
     "timestamp": false
   },
 "experimental": {
@@ -211,10 +211,6 @@
           "geosite-private",
           "geosite-apple@cn"
         ],
-        "outbound": "direct"
-      },
-      {
-        "ip_is_private": true,
         "outbound": "direct"
       },
       {
