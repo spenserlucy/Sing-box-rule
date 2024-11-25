@@ -180,6 +180,7 @@
       {
         "rule_set":  [
           "AWAvenue-Ads-Rule",
+          "anti-ad-sing-box",
           "AdGuardSDNSFilter"
         ],
         "outbound": "block"
@@ -383,6 +384,14 @@
         "format": "binary",
         "update_interval": "1d",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
+        "update_interval": "1d",
+        "download_detour": "direct"
+      },
+      {
+        "tag": "anti-ad-sing-box",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://anti-ad.net/anti-ad-sing-box.srs",
         "update_interval": "1d",
         "download_detour": "direct"
       }
