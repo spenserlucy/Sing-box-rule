@@ -432,10 +432,6 @@
       "tag": "direct"
     },
     {
-      "type": "dns",
-      "tag": "dns-out"
-    },
-    {
       "tag": "Proxy",
       "outbounds": [
         "MapleCloud",
