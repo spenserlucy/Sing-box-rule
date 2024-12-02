@@ -434,6 +434,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "CTC0.0",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -468,7 +469,6 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
-        "CTC0.0",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -640,13 +640,13 @@
       "tolerance": 50,
       "tag": "CTC0.0",
       "outbounds": [
-        "CTC200"
+        "{CTC200}"
       ],
       "filter": [
         {
           "action": "include",
           "keywords": [
-            "0.2|0.5"
+            "0.2倍率|0.5倍率"
           ]
         }
       ]
