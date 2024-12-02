@@ -468,6 +468,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "CTC0.0",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -628,6 +629,24 @@
           "action": "include",
           "keywords": [
             "倍率"
+          ]
+        }
+      ]
+    },
+      {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "CTC0.0",
+      "outbounds": [
+        "CTC200"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "0.2|0.5"
           ]
         }
       ]
