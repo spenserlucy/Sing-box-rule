@@ -434,7 +434,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
-        "CTClite",
+        "CTCLite",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -622,7 +622,7 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "tag": "CTClite",
+      "tag": "CTCLite",
       "outbounds": [
         "{all}"
       ],
