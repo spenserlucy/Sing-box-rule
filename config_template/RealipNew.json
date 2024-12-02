@@ -47,12 +47,10 @@
       },
       {
         "clash_mode": "Direct",
-        "action": "route",
         "server": "local-dns"
       },
       {
         "clash_mode": "Global",
-        "action": "route",
         "server": "dns-proxy-cf"
       },
       {
@@ -177,12 +175,10 @@
       },
       {
         "clash_mode": "Direct",
-        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "Global",
-        "action": "route",
         "outbound": "Proxy"
       },
       {
