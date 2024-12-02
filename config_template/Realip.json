@@ -457,7 +457,6 @@
       "tag": "USRule",
       "outbounds": [
         "US",
-        "USS",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -578,21 +577,6 @@
           "action": "include",
           "keywords": [
             "🇺🇸|美国|US|United States"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "selector",
-      "tag": "USS",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-             "🇺🇸|美国|US|United States"
           ]
         }
       ]
