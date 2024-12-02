@@ -46,14 +46,17 @@
     "rules": [
       {
         "outbound": "any",
+        "action": "route",
         "server": "dns_resolver-tx"
       },
       {
         "clash_mode": "Direct",
+        "action": "route",
         "server": "local-dns"
       },
       {
         "clash_mode": "Global",
+        "action": "route",
         "server": "dns-proxy-cf"
       },
       {
@@ -69,6 +72,7 @@
           "YouTube",
           "geosite-geolocation-!cn"
         ],
+        "action": "route",
         "server": "dns-proxy-cf"
       },
       {
@@ -81,11 +85,12 @@
           "geosite-apple@cn",
           "geoip-cn"
         ],
+        "action": "route",
         "server": "dns-proxy-cf"
       },
       {
         "query_type": "HTTPS",
-        "server": "block"
+        "action": "reject"
       },
       {
         "rule_set": [
@@ -94,7 +99,7 @@
           "anti-ad-sing-box",
           "geosite-category-ads-all"
         ],
-        "server": "block"
+        "action": "reject"
       }
     ],
     "client_subnet": "42.239.205.0",
@@ -154,7 +159,7 @@
             "port": 53
           }
         ],
-        "outbound": "dns-out"
+       "action": "hijack-dns"
       },
       {
         "protocol": "quic",
@@ -171,14 +176,17 @@
             "domain": "geosite-cn"
           }
         ],
+        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "Direct",
+        "action": "route",
         "outbound": "direct"
       },
       {
         "clash_mode": "Global",
+        "action": "route",
         "outbound": "Proxy"
       },
       {
@@ -186,12 +194,14 @@
           "Binance",
           "OKX"
         ],
+        "action": "route",
         "outbound": "BinOKX"
       },
       {
         "rule_set": [
           "YouTube"
         ],
+        "action": "route",
         "outbound": "Video"
       },
       {
@@ -202,6 +212,7 @@
           "GoogleVoice",
           "GoogleSearch"
         ],
+        "action": "route",
         "outbound": "USRule"
       },
       {
@@ -212,10 +223,12 @@
           "geosite-private",
           "geosite-apple@cn"
         ],
+        "action": "route",
         "outbound": "direct"
       },
       {
         "rule_set": "geosite-gfw",
+        "action": "route",
         "outbound": "Proxy"
       },
       {
@@ -230,6 +243,7 @@
             "invert": true
           }
         ],
+        "action": "route",
         "outbound": "Proxy"
       },
       {
