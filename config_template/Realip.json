@@ -640,7 +640,7 @@
       "tolerance": 50,
       "tag": "CTC0.0",
       "outbounds": [
-        "{CTC200}"
+        "{all}"
       ],
       "filter": [
         {
