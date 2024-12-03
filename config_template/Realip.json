@@ -434,7 +434,6 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
-        "CTCLite",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -613,24 +612,6 @@
           "action": "include",
           "keywords": [
             "C20"
-          ]
-        }
-      ]
-    },
-      {
-      "type": "urltest",
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "tag": "CTCLite",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "0.2倍率|0.5倍率"
           ]
         }
       ]
