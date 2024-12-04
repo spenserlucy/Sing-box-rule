@@ -609,16 +609,16 @@
         "webshare"
       ]
     },
-   {
-  "type": "socks",
-  "tag": "webshare",
-  "server": "216.98.253.141",
-  "server_port": 6184,
-  "version": "5",
-  "username": "jscxdejl",
-  "password": "539x44x41eqc",
-  "network": "udp",
-  "udp_over_tcp": false,
+    {
+      "type": "socks",
+      "tag": "webshare",
+      "server": "216.98.253.141",
+      "server_port": 6184,
+      "version": "5",
+      "username": "jscxdejl",
+      "password": "539x44x41eqc",
+      "network": "udp",
+      "udp_over_tcp": false,
    } 
   ]
 }
