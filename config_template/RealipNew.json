@@ -618,7 +618,7 @@
       "username": "jscxdejl",
       "password": "539x44x41eqc",
       "network": "udp",
-      "udp_over_tcp": false,
+      "udp_over_tcp": false
    } 
   ]
 }
