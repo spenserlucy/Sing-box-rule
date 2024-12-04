@@ -631,7 +631,7 @@
         }
       ]
     },
-       {
+    {
       "type": "selector",
       "tag": "Select",
       "outbounds": [
