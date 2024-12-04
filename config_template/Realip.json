@@ -434,6 +434,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "webshare",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -456,6 +457,7 @@
       "tag": "USRule",
       "outbounds": [
         "US",
+        "webshare",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -467,6 +469,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "webshare",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -620,8 +623,20 @@
       "type": "selector",
       "tag": "Select",
       "outbounds": [
-        "{all}"
+        "{all}",
+        "webshare"
       ]
-    }
+    },
+    {
+      "type": "socks",
+      "tag": "webshare",
+      "server": "216.98.253.141",
+      "server_port": 6184,
+      "version": "5",
+      "username": "jscxdejl",
+      "password": "539x44x41eqc",
+      "network": "udp",
+      "udp_over_tcp": false,
+   } 
   ]
 }
