@@ -630,9 +630,9 @@
     {
       "type": "socks",
       "tag": "Webshare",
-      "server": "p.webshare.io",
-      "server_port": 80,
-      "username": "jscxdejl-rotate",
+      "server": "216.98.253.141",
+      "server_port": 6184,
+      "username": "jscxdejl",
       "password": "539x44x41eqc"
    } 
   ]
