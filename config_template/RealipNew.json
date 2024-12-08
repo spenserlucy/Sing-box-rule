@@ -447,6 +447,7 @@
       "tag": "USRule",
       "outbounds": [
         "US",
+        "Webshare",
         "Select"
       ],
       "interrupt_exist_connections": true,
@@ -458,6 +459,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "Webshare",
         "Select"
       ],
       "interrupt_exist_connections": true,
