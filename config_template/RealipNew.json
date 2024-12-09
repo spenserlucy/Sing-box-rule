@@ -424,6 +424,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "CTC300",
         "Webshare",
         "Select"
       ],
@@ -459,6 +460,7 @@
       "outbounds": [
         "MapleCloud",
         "CTC200",
+        "CTC300",
         "Webshare",
         "Select"
       ],
@@ -605,6 +607,24 @@
           "action": "include",
           "keywords": [
             "C20"
+          ]
+        }
+      ]
+    },
+   {
+      "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204",
+      "interval": "10m",
+      "tolerance": 50,
+      "tag": "CTC300",
+      "outbounds": [
+        "{all}"
+      ],
+      "filter": [
+        {
+          "action": "include",
+          "keywords": [
+            "-A-"
           ]
         }
       ]
