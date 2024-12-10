@@ -626,6 +626,12 @@
           "keywords": [
             "-A-"
           ]
+        },
+        {
+          "action": "exclude",
+          "keywords": [
+            "10.0倍率"
+          ]
         }
       ]
     },
