@@ -410,8 +410,8 @@
     {
       "tag": "Webshare",
       "type": "socks",
-      "server": "207.228.21.6",
-      "server_port": 6037,
+      "server": "207.228.13.73",
+      "server_port": 5755,
       "username": "jscxdejl",
       "password": "539x44x41eqc"
     },
