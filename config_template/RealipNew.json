@@ -437,7 +437,7 @@
         "SG",
         "JP",
         "KO",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -448,7 +448,7 @@
       "outbounds": [
         "US",
         "Webshare",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -461,7 +461,7 @@
         "CTC200",
         "CTC300",
         "Webshare",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
