@@ -65,7 +65,7 @@
           "YouTube",
           "geosite-geolocation-!cn"
         ],
-        "server": "dns--cf"
+        "server": "dns-proxy-cf"
       },
       {
         "rule_set": [
