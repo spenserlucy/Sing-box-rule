@@ -638,7 +638,8 @@
       "type": "selector",
       "tag": "Select",
       "outbounds": [
-        "{all}"
+        "{all}",
+        "Webshare"
       ]
     }
   ]
