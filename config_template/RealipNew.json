@@ -77,7 +77,7 @@
           "geosite-apple@cn",
           "geoip-cn"
         ],
-        "server": "dns--cf"
+        "server": "dns-proxy-cf"
       },
       {
         "query_type": "HTTPS",
@@ -95,7 +95,7 @@
     ],
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
-    "final": "dns--cf"
+    "final": "dns-proxy-cf"
   },
   "ntp": {
     "enabled": true,
