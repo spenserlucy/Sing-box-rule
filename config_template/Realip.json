@@ -447,7 +447,7 @@
         "SG",
         "JP",
         "KO",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -457,7 +457,7 @@
       "tag": "USRule",
       "outbounds": [
         "US",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
@@ -469,7 +469,7 @@
         "MapleCloud",
         "CTC200",
         "CTC300",
-        "Select"
+        "Smart"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
