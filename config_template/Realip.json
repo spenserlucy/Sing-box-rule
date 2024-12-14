@@ -472,8 +472,7 @@
         "Smart"
       ],
       "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "MapleCloud"
+      "type": "selector"
     },
     {
       "type": "urltest",
