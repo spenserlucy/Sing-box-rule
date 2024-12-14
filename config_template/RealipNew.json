@@ -36,7 +36,7 @@
         "tag": "dns-proxy-cf",
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "detour": "Proxy"
+        "detour": "Smart"
       }
     ],
     "rules": [
@@ -65,7 +65,7 @@
           "YouTube",
           "geosite-geolocation-!cn"
         ],
-        "server": "dns-proxy-cf"
+        "server": "dns--cf"
       },
       {
         "rule_set": [
@@ -77,7 +77,7 @@
           "geosite-apple@cn",
           "geoip-cn"
         ],
-        "server": "dns-proxy-cf"
+        "server": "dns--cf"
       },
       {
         "query_type": "HTTPS",
@@ -95,14 +95,14 @@
     ],
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
-    "final": "dns-proxy-cf"
+    "final": "dns--cf"
   },
   "ntp": {
     "enabled": true,
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m0s",
-    "detour": "Proxy"
+    "detour": "Smart"
   },
   "inbounds": [
     {
@@ -168,7 +168,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Proxy"
+        "outbound": "Select"
       },
       {
         "rule_set": [
@@ -206,7 +206,7 @@
       },
       {
         "rule_set": "geosite-gfw",
-        "outbound": "Proxy"
+        "outbound": "Smart"
       },
       {
         "type": "logical",
@@ -220,7 +220,7 @@
             "invert": true
           }
         ],
-        "outbound": "Proxy"
+        "outbound": "Smart"
       },
       {
         "rule_set": [
@@ -404,7 +404,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "Proxy"
+    "final": "Smart"
  },
  "outbounds": [
     {
@@ -420,16 +420,15 @@
       "tag": "direct"
     },
     {
-      "tag": "Proxy",
+      "tag": "Smart",
       "outbounds": [
         "MapleCloud",
         "CTC200",
-        "CTC300",
-        "Webshare",
-        "Select"
+        "CTC300"
       ],
       "interrupt_exist_connections": true,
-      "type": "selector"
+       "type": "urltest",
+      "url": "https://www.gstatic.com/generate_204"
     },
     {
       "tag": "BinOKX",
