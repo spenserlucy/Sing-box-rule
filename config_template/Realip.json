@@ -36,7 +36,7 @@
         "tag": "dns-proxy-cf",
         "address": "https://162.159.36.1/dns-query",
         "address_resolver": "dns_resolver-tx",
-        "detour": "Proxy"
+        "detour": "Smart"
       },
       {
         "tag": "block",
@@ -106,7 +106,7 @@
     "server": "time.apple.com",
     "server_port": 123,
     "interval": "30m0s",
-    "detour": "Proxy"
+    "detour": "Smart"
   },
   "inbounds": [
     {
@@ -216,7 +216,7 @@
       },
       {
         "rule_set": "geosite-gfw",
-        "outbound": "Proxy"
+        "outbound": "Smart"
       },
       {
         "type": "logical",
@@ -230,7 +230,7 @@
             "invert": true
           }
         ],
-        "outbound": "Proxy"
+        "outbound": "Smart"
       },
       {
         "rule_set": [
@@ -414,7 +414,7 @@
       }
     ],
     "auto_detect_interface": true,
-    "final": "Proxy"
+    "final": "Smart"
  },
  "outbounds": [
     {
@@ -430,7 +430,7 @@
       "tag": "block"
     },
     {
-      "tag": "Proxy",
+      "tag": "Smart",
       "outbounds": [
         "MapleCloud",
         "CTC200",
