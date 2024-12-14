@@ -179,7 +179,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Proxy"
+        "outbound": "Select"
       },
       {
         "rule_set": [
