@@ -85,8 +85,8 @@
       },
       {
         "rule_set": [
-          "AWAvenue-Ads-Rule",
           "AdGuardSDNSFilter",
+          "AWAvenue-Ads-Rule",
           "anti-ad-sing-box",
           "geosite-category-ads-all"
         ],
@@ -224,8 +224,8 @@
       },
       {
         "rule_set": [
-          "AWAvenue-Ads-Rule",
           "AdGuardSDNSFilter",
+          "AWAvenue-Ads-Rule",
           "anti-ad-sing-box",
           "geosite-category-ads-all"
         ],
