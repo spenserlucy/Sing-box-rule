@@ -432,7 +432,7 @@
     {
       "tag": "Smart",
       "outbounds": [
-        "MapleCloud",
+        "MapleC",
         "CTC200",
         "CTC300"
       ],
@@ -466,7 +466,7 @@
     {
       "tag": "Video",
       "outbounds": [
-        "MapleCloud",
+        "MapleC",
         "CTC200",
         "CTC300",
         "Smart"
@@ -586,7 +586,7 @@
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
       "tolerance": 50,
-      "tag": "MapleCloud",
+      "tag": "MapleC",
       "outbounds": [
         "{all}"
       ],
