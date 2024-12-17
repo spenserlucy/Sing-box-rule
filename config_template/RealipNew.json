@@ -87,7 +87,6 @@
         "rule_set": [
           "AdGuardSDNSFilter",
           "AWAvenue-Ads-Rule",
-          "anti-ad-sing-box",
           "geosite-category-ads-all"
         ],
         "action": "reject"
@@ -226,7 +225,6 @@
         "rule_set": [
           "AdGuardSDNSFilter",
           "AWAvenue-Ads-Rule",
-          "anti-ad-sing-box",
           "geosite-category-ads-all"
         ],
         "action": "reject"
@@ -391,14 +389,6 @@
         "type": "remote",
         "format": "binary",
         "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
-        "update_interval": "1d",
-        "download_detour": "direct"
-      },
-      {
-        "tag": "anti-ad-sing-box",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://anti-ad.net/anti-ad-sing-box.srs",
         "update_interval": "1d",
         "download_detour": "direct"
       }
