@@ -80,10 +80,6 @@
         "server": "dns-proxy-cf"
       },
       {
-        "query_type": "HTTPS",
-        "action": "reject"
-      },
-      {
         "rule_set": [
           "AdGuardSDNSFilter",
           "AWAvenue-Ads-Rule",
@@ -134,10 +130,6 @@
       {
        "protocol": "dns"       
        "action": "hijack-dns"
-      },
-      {
-        "protocol": "quic",
-        "action": "reject"
       },
       {
         "type": "logical",
