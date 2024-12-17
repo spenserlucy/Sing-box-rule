@@ -80,10 +80,6 @@
         "server": "dns-proxy-cf"
       },
       {
-        "query_type": "HTTPS",
-        "action": "reject"
-      },
-      {
         "rule_set": [
           "AdGuardSDNSFilter",
           "AWAvenue-Ads-Rule",
