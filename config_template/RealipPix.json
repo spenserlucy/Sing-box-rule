@@ -14,8 +14,8 @@
       "external_controller": "127.0.0.1:9090",
       "external_ui": "ui",
       "secret": "",
-      "external_ui_download_url": "https://ghp.ci/https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "direct",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "Webshare",
       "default_mode": "Rule"
     }
   },
@@ -80,6 +80,10 @@
         "server": "dns-proxy-cf"
       },
       {
+        "query_type": "HTTPS",
+        "action": "reject"
+      },
+      {
         "rule_set": [
           "AdGuardSDNSFilter",
           "AWAvenue-Ads-Rule",
@@ -103,18 +107,22 @@
     {
       "tag": "tun-in",
       "type": "tun",
-      "interface_name": "singbox-tun",
+      "interface_name": "singbox",
       "address": [
         "172.19.0.1/30"
       ],
       "mtu": 9000,
-      "stack": "mixed",
+      "stack": "system",
       "auto_route": true,
-      "strict_route": true
-    },
-    {
-      "type": "mixed",
-      "tag": "mixed-in"
+      "sniff_override_destination": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": false,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
     }
   ],
   "route": {
@@ -122,16 +130,6 @@
       {
         "inbound": "tun-in",
         "action": "sniff"
-      },
-      {
-        "inbound": "mixed-in",
-        "action": "resolve",
-        "strategy": "ipv4_only"
-      },
-      {
-        "inbound": "in",
-        "action": "sniff",
-        "timeout": "1s"
       },
       {
         "type": "logical",
@@ -236,163 +234,163 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "Binance",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "OKX",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "PayPal",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "OpenAI",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "Gemini",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "GoogleVoice",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "GoogleSearch",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "YouTube",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "ChinaMax",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
+        "url": "https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geosite-cn",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geosite-category-games@cn",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geosite-private",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geosite-apple@cn",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geoip-cn",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
       },
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "direct",
+        "download_detour": "Webshare",
         "tag": "geosite-geolocation-!cn",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
         "tag": "geosite-gfw",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghp.ci/https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
+        "url": "https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
         "update_interval": "1d",
-        "download_detour": "direct"
+        "download_detour": "Webshare"
       },
       {
         "tag": "geosite-geolocation-cn",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghp.ci/https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
         "update_interval": "1d",
-        "download_detour": "direct"
+        "download_detour": "Webshare"
       },
       {
         "type": "remote",
         "tag": "AWAvenue-Ads-Rule",
         "format": "binary",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
+        "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
         "update_interval": "1d",
-        "download_detour": "direct"
+        "download_detour": "Webshare"
       },
       {
         "tag": "AdGuardSDNSFilter",
         "type": "remote",
         "format": "binary",
         "update_interval": "1d",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
+        "url": "https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
         "update_interval": "1d",
-        "download_detour": "direct"
+        "download_detour": "Webshare"
       },
       {
         "tag": "geosite-category-ads-all",
         "type": "remote",
         "format": "binary",
-        "url": "https://ghp.ci/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
         "update_interval": "1d",
-        "download_detour": "direct"
+        "download_detour": "Webshare"
       }
     ],
     "auto_detect_interface": true,
