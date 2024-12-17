@@ -114,14 +114,11 @@
       "mtu": 9000,
       "stack": "mixed",
       "auto_route": true,
-      "strict_route": true,
-      "sniff": true
+      "strict_route": true
     },
     {
-      "tag": "socks-in",
-      "type": "socks",
-      "listen": "::",
-      "listen_port": 5319
+      "type": "mixed",
+      "tag": "mixed-in"
     }
   ],
   "route": {
@@ -129,6 +126,16 @@
       {
         "inbound": "tun-in",
         "action": "sniff"
+      },
+      {
+        "inbound": "mixed-in",
+        "action": "resolve",
+        "strategy": "ipv4_only"
+      },
+      {
+        "inbound": "in",
+        "action": "sniff",
+        "timeout": "1s"
       },
       {
         "type": "logical",
