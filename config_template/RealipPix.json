@@ -412,7 +412,6 @@
     {
       "tag": "Smart",
       "outbounds": [
-        "MapleC",
         "CTC200",
         "CTC300"
       ],
@@ -447,7 +446,6 @@
     {
       "tag": "Video",
       "outbounds": [
-        "MapleC",
         "CTC200",
         "CTC300",
         "Webshare",
@@ -559,24 +557,6 @@
           "action": "include",
           "keywords": [
             "🇺🇸|美国|US|United States"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "urltest",
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "tag": "MapleC",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "HongKong|Taiwan|Japan|Singapore"
           ]
         }
       ]
