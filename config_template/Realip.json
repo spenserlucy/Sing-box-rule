@@ -67,6 +67,7 @@
           "GoogleSearch",
           "geosite-gfw",
           "YouTube",
+          "Google",
           "geosite-geolocation-!cn"
         ],
         "server": "dns-proxy-cf"
@@ -200,7 +201,8 @@
           "OpenAI",
           "Gemini",
           "GoogleVoice",
-          "GoogleSearch"
+          "GoogleSearch",
+          "Google"
         ],
         "outbound": "USRule"
       },
@@ -386,6 +388,14 @@
         "url": "https://ghp.ci/https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
         "update_interval": "1d",
         "download_detour": "direct"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "direct",
+        "tag": "Google",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
       },
       {
         "tag": "AdGuardSDNSFilter",
