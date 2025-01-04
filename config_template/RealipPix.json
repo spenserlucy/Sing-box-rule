@@ -63,6 +63,7 @@
           "GoogleSearch",
           "geosite-gfw",
           "YouTube",
+          "Google",
           "geosite-geolocation-!cn"
         ],
         "server": "dns-proxy-cf"
@@ -188,7 +189,8 @@
           "OpenAI",
           "Gemini",
           "GoogleVoice",
-          "GoogleSearch"
+          "GoogleSearch",
+          "Google"
         ],
         "outbound": "USRule"
       },
@@ -294,6 +296,14 @@
         "tag": "YouTube",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "Webshare",
+        "tag": "Google",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
       },
       {
         "type": "remote",
