@@ -438,7 +438,6 @@
         "TW",
         "SG",
         "JP",
-        "KO",
         "Smart"
       ],
       "interrupt_exist_connections": true,
@@ -535,24 +534,6 @@
           "action": "include",
           "keywords": [
             "🇯🇵|日本|JP|Japan"
-          ]
-        }
-      ]
-    },
-    {
-      "type": "urltest",
-      "url": "https://www.gstatic.com/generate_204",
-      "interval": "10m",
-      "tolerance": 50,
-      "tag": "KO",
-      "outbounds": [
-        "{all}"
-      ],
-      "filter": [
-        {
-          "action": "include",
-          "keywords": [
-            "🇰🇷|KO|韩国|Korea"
           ]
         }
       ]
