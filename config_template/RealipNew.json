@@ -567,9 +567,9 @@
       ],
       "filter": [
         {
-          "action": "include",
+          "action": "exclude",
           "keywords": [
-            "1S|2E|3N|4M|5W"
+            "C20|-A-"
           ]
         }
       ]
