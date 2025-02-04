@@ -567,9 +567,9 @@
       ],
       "filter": [
         {
-          "action": "include",
+          "action": "exclude",
           "keywords": [
-            "HKG|TWN|JPN|SGP|USA|DEU"
+            "C20|-A-|6S"
           ]
         }
       ]
