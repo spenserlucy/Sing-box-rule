@@ -569,13 +569,7 @@
         {
           "action": "include",
           "keywords": [
-            "HKG"
-          ]
-        },
-        {
-          "action": "exclude",
-          "keywords": [
-            "6S"
+            "HKG|TWN|JPN|SGP|USA|DEU"
           ]
         }
       ]
@@ -598,7 +592,7 @@
         }
       ]
     },
-   {
+    {
       "type": "urltest",
       "url": "https://www.gstatic.com/generate_204",
       "interval": "10m",
