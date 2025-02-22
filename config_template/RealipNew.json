@@ -54,6 +54,7 @@
       },
       {
         "rule_set": [
+          "Crypto",
           "Binance",
           "OKX",
           "PayPal",
@@ -172,6 +173,7 @@
       },
       {
         "rule_set": [
+          "Crypto",
           "Binance",
           "OKX"
         ],
@@ -233,6 +235,14 @@
       }
     ],
     "rule_set": [
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "Webshare",
+        "tag": "Crypto",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Cryptocurrency/Cryptocurrency.srs"
+      },
       {
         "type": "remote",
         "format": "binary",
