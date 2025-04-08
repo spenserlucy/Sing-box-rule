@@ -418,28 +418,12 @@
  },
   "outbounds": [
     {
-       "type": "vless",
-       "tag": "Webshare",
-       "server": "us01.c20.xuexiqiangguo.525536.xyz",
-       "server_port": 10011,
-       "uuid": "eb70dc35-3fa4-449f-bf5c-4a6b8d984cb1",
-        "flow": "xtls-rprx-vision",
-        "tls": {
-            "enabled": true,
-            "server_name": "gamedownloads-rockstargames-com.akamaized.net",
-            "utls": {
-                "enabled": true,
-                "fingerprint": "chrome"
-            },
-            "reality": {
-                "enabled": true,
-                "public_key": "mES4Y53j5rkzpbHFHb_ZZ0GOmWVG1Q-KPM4vPkcf2GQ",
-                "short_id": "6a1ebd5a12214ab6"
-            }
-        },
-        "packet_encoding": "xudp",
-        "tcp_multi_path": true,
-        "udp_fragment": true
+      "tag": "Webshare",
+      "type": "socks",
+      "server": "69.30.72.12",
+      "server_port": 5068,
+      "username": "jscxdejl",
+      "password": "539x44x41eqc"
     },
     {
       "type": "direct",
