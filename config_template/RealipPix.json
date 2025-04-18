@@ -439,10 +439,8 @@
         "CTC300"
       ],
       "interrupt_exist_connections": true,
-      "type": "urltest",
-      "interval": "10m",
-      "tolerance": 50,
-      "url": "https://www.gstatic.com/generate_204"
+      "type": "selector",
+      "default": "SG"
     },
     {
       "tag": "BinOKX",
