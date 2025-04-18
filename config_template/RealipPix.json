@@ -432,6 +432,9 @@
     {
       "tag": "Smart",
       "outbounds": [
+        "SG",
+        "TW",
+        "JP",
         "CTC200",
         "CTC300"
       ],
