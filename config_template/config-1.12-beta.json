@@ -31,14 +31,12 @@
         "tag": "local-dns",
         "type": "https",
         "server": "120.53.53.53/dns-query",
-        "address_resolver": "dns_resolver-tx",
         "detour": "direct"
       },
       {
         "tag": "dns-proxy-cf",
         "type": "https",
         "server": "162.159.36.1/dns-query",
-        "address_resolver": "dns_resolver-tx",
         "detour": "Smart"
       }
     ],
