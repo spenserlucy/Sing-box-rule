@@ -24,14 +24,12 @@
       {
         "tag": "dns_resolver-tx",
         "type": "tls",
-        "server": "119.29.29.29",
-        "detour": "direct"
+        "server": "119.29.29.29"
       },
       {
         "tag": "local-dns",
         "type": "https",
-        "server": "120.53.53.53",
-        "detour": "direct"
+        "server": "120.53.53.53"
       },
       {
         "tag": "dns-proxy-cf",
