@@ -123,6 +123,11 @@
     }
   ],
   "route": {
+    "default_domain_resolver": {
+      "server": "local-dns"
+    },
+    "auto_detect_interface": true,
+    "final": "Proxy",
     "rules": [
       {
         "inbound": "tun-in",
