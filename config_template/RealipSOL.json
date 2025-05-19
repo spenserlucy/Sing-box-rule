@@ -23,27 +23,22 @@
     "servers": [
       {
         "tag": "dns_resolver-tx",
-        "address": "119.29.29.29",
-        "detour": "direct"
+        "type": "tls",
+        "server": "119.29.29.29"
       },
       {
         "tag": "local-dns",
-        "address": "https://120.53.53.53/dns-query",
-        "address_resolver": "dns_resolver-tx",
-        "detour": "direct"
+        "type": "https",
+        "server": "120.53.53.53"
       },
       {
         "tag": "dns-proxy-cf",
-        "address": "https://162.159.36.1/dns-query",
-        "address_resolver": "dns_resolver-tx",
+        "type": "https",
+        "server": "162.159.36.1",
         "detour": "Smart"
       }
     ],
     "rules": [
-      {
-        "outbound": "any",
-        "server": "dns_resolver-tx"
-      },
       {
         "clash_mode": "Direct",
         "server": "local-dns"
@@ -128,6 +123,11 @@
     }
   ],
   "route": {
+    "default_domain_resolver": {
+      "server": "local-dns"
+    },
+    "auto_detect_interface": true,
+    "final": "Proxy",
     "rules": [
       {
         "inbound": "tun-in",
