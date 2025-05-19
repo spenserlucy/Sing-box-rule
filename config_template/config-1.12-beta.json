@@ -30,13 +30,13 @@
       {
         "tag": "local-dns",
         "type": "https",
-        "server": "120.53.53.53/dns-query",
+        "server": "120.53.53.53",
         "detour": "direct"
       },
       {
         "tag": "dns-proxy-cf",
         "type": "https",
-        "server": "162.159.36.1/dns-query",
+        "server": "162.159.36.1",
         "detour": "Smart"
       }
     ],
