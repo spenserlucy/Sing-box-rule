@@ -40,10 +40,6 @@
     ],
     "rules": [
       {
-        "outbound": "any",
-        "server": "dns_resolver-tx"
-      },
-      {
         "clash_mode": "Direct",
         "server": "local-dns"
       },
