@@ -102,6 +102,11 @@
   },
   "inbounds": [
     {
+      "type": "socks",
+      "listen": "127.0.0.1",
+      "listen_port": 10808
+    },
+    {
       "tag": "tun-in",
       "type": "tun",
       "interface_name": "singbox",
