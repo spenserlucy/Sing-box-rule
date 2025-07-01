@@ -115,7 +115,6 @@
     "final": "Proxy",
     "rules": [
       {
-        "inbound": "tun-in",
         "action": "sniff"
       },
       {
