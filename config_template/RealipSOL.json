@@ -102,9 +102,24 @@
   },
   "inbounds": [
     {
-      "type": "socks",
-      "listen": "127.0.0.1",
-      "listen_port": 10808
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "singbox",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "mtu": 9000,
+      "stack": "system",
+      "auto_route": true,
+      "sniff_override_destination": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": false,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
     }
   ],
   "route": {
