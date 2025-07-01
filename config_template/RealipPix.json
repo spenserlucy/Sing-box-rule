@@ -100,26 +100,11 @@
     "interval": "30m0s",
     "detour": "Smart"
   },
-  "inbounds": [
+ "inbounds": [
     {
-      "tag": "tun-in",
-      "type": "tun",
-      "interface_name": "singbox",
-      "address": [
-        "172.19.0.1/30"
-      ],
-      "mtu": 9000,
-      "stack": "system",
-      "auto_route": true,
-      "sniff_override_destination": true,
-      "strict_route": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": false,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
+      "type": "socks",
+      "listen": "127.0.0.1",
+      "listen_port": 10808
     }
   ],
   "route": {
@@ -420,8 +405,8 @@
     {
       "tag": "Webshare",
       "type": "socks",
-      "server": "69.30.72.12",
-      "server_port": 5068,
+      "server": "5.182.198.30",
+      "server_port": 5606,
       "username": "jscxdejl",
       "password": "539x44x41eqc"
     },
@@ -602,7 +587,7 @@
         {
           "action": "exclude",
           "keywords": [
-            "10.0倍率|2.0倍率"
+            "100.0倍率|200.0倍率"
           ]
         }
       ]
