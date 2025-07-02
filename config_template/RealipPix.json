@@ -101,12 +101,33 @@
     "detour": "Smart"
   },
  "inbounds": [
-    {
-      "type": "socks",
-      "listen": "127.0.0.1",
-      "listen_port": 10808
-    }
-  ],
+        {
+            "tag": "tun",
+            "type": "tun",
+            "inet4_address": "172.19.0.1\/30",
+            "inet6_address": "fdfe:dcba:9876::1\/126",
+            "mtu": 9000,
+            "stack": "system",
+            "auto_route": true,
+            "strict_route": true,
+            "sniff": true,
+            "platform": {
+                "http_proxy": {
+                    "enabled": false,
+                    "server": "127.0.0.1",
+                    "server_port": 10080
+                }
+            }
+        },
+        {
+            "tag": "mixed",
+            "type": "mixed",
+            "listen": "127.0.0.1",
+            "listen_port": 10080,
+            "sniff": true,
+            "domain_strategy": "prefer_ipv4"
+        }
+    ],
   "route": {
     "default_domain_resolver": {
       "server": "local-dns"
