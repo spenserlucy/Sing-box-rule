@@ -93,43 +93,17 @@
     "strategy": "ipv4_only",
     "final": "dns-proxy-cf"
   },
-  "ntp": {
-    "enabled": true,
-    "server": "time.apple.com",
-    "server_port": 123,
-    "interval": "30m0s",
-    "detour": "Smart"
-  },
  "inbounds": [
     {
-      "tag": "tun-in",
       "type": "tun",
-      "interface_name": "singbox",
       "address": [
-        "172.19.0.1/30"
+        "172.18.0.1/30",
+        "fdfe:dcba:9876::1/126"
       ],
-      "mtu": 9000,
-      "stack": "system",
       "auto_route": true,
-      "sniff_override_destination": true,
-      "strict_route": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": false,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-        }
-      },
-        {
-            "tag": "mixed",
-            "type": "mixed",
-            "listen": "127.0.0.1",
-            "listen_port": 10080,
-            "sniff": true,
-            "domain_strategy": "prefer_ipv4"
-        }
-    ],
+      "strict_route": true
+    }
+  ],
   "route": {
     "default_domain_resolver": {
       "server": "local-dns"
