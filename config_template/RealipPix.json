@@ -112,7 +112,7 @@
       "server": "local-dns"
     },
     "auto_detect_interface": true,
-    "final": "Proxy",
+    "final": "dns-proxy-cf",
     "rules": [
       {
         "action": "sniff"
@@ -408,6 +408,9 @@
       "server_port": 5606,
       "username": "jscxdejl",
       "password": "539x44x41eqc"
+    },
+    {
+      "tag": "proxy"
     },
     {
       "type": "direct",
