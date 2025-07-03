@@ -101,9 +101,8 @@
         "fdfe:dcba:9876::1/126"
       ],
       "auto_route": true,
-      "strict_route": true
-    },
-   "route_exclude_address": [
+      "strict_route": true,
+      "route_exclude_address": [
                 "10.0.0.0/8",
                 "100.64.0.0/10",
                 "127.0.0.0/8",
@@ -122,6 +121,7 @@
                 "ff04::/16",
                 "ff05::/16"
             ]
+    }
   ],
   "route": {
     "default_domain_resolver": {
