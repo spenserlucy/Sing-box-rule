@@ -459,7 +459,7 @@
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
-      "default": "WS-US"
+      "default": "WS-JP"
     },
     {
       "tag": "BinOKX",
@@ -635,7 +635,7 @@
         "WS-JP",
         "WS-US"
       ],
-       "default": "WS-US"
+       "default": "WS-JP"
     }
   ]
 }
