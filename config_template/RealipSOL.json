@@ -425,6 +425,14 @@
       "username": "jscxdejl",
       "password": "539x44x41eqc"
     },
+   {
+      "tag": "WS-JP",
+      "type": "socks",
+      "server": "82.23.196.104",
+      "server_port": 5606,
+      "username": "jscxdejl",
+      "password": "539x44x41eqc"
+    },
     {
       "type": "direct",
       "tag": "direct"
@@ -446,6 +454,7 @@
     {
       "tag": "WebShare",
       "outbounds": [
+        "WS-JP",
         "WS-US"
       ],
       "interrupt_exist_connections": true,
@@ -546,6 +555,7 @@
       "tolerance": 50,
       "tag": "JP",
       "outbounds": [
+        "WS-JP",
         "{all}"
       ],
       "filter": [
@@ -622,6 +632,7 @@
       "tag": "Select",
       "outbounds": [
         "{all}",
+        "WS-JP",
         "WS-US"
       ],
        "default": "WS-US"
