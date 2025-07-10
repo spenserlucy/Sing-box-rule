@@ -399,12 +399,21 @@
  },
  "outbounds": [
     {
-      "tag": "Webshare",
+      "tag": "WB-US",
       "type": "socks",
       "server": "5.182.198.30",
       "server_port": 5606,
       "username": "jscxdejl",
       "password": "539x44x41eqc"
+    },
+    {
+      "tag": "Webshare",
+      "outbounds": [
+        "WB-US"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "WB-US"
     },
     {
       "type": "direct",
@@ -417,7 +426,8 @@
         "TW",
         "JP",
         "CTC200",
-        "CTC300"
+        "CTC300",
+        "Webshare"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
