@@ -605,7 +605,7 @@
         "{all}",
         "WS-US"
       ],
-       "default": "WebShare"
+       "default": "WS-US"
     }
   ]
 }
