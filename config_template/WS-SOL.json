@@ -1,0 +1,483 @@
+{
+  "log": {
+    "disabled": false,
+    "level": "info",
+    "timestamp": false
+  },
+"experimental": {
+    "cache_file": {
+        "enabled": true,
+        "path": "cache.db",
+        "cache_id": "WS"
+    },
+    "clash_api": {
+      "external_controller": "127.0.0.1:9090",
+      "external_ui": "ui",
+      "secret": "",
+      "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
+      "external_ui_download_detour": "WS-JP",
+      "default_mode": "Rule"
+    }
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "dns_resolver-tx",
+        "type": "tls",
+        "server": "119.29.29.29"
+      },
+      {
+        "tag": "local-dns",
+        "type": "https",
+        "server": "120.53.53.53"
+      },
+      {
+        "tag": "dns-proxy-cf",
+        "type": "https",
+        "server": "162.159.36.1",
+        "detour": "Smart"
+      }
+    ],
+    "rules": [
+      {
+        "clash_mode": "Direct",
+        "server": "local-dns"
+      },
+      {
+        "clash_mode": "Global",
+        "server": "dns-proxy-cf"
+      },
+      {
+        "rule_set": [
+          "Crypto",
+          "Binance",
+          "OKX",
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch",
+          "geosite-gfw",
+          "YouTube",
+          "Google",
+          "geosite-geolocation-!cn"
+        ],
+        "server": "dns-proxy-cf"
+      },
+      {
+        "rule_set": [
+          "ChinaMax",
+          "geosite-cn",
+          "geosite-category-games@cn",
+          "geosite-geolocation-cn",
+          "geosite-private",
+          "geosite-apple@cn",
+          "geoip-cn"
+        ],
+        "server": "dns-proxy-cf"
+      },
+      {
+        "query_type": "HTTPS",
+        "action": "reject"
+      },
+      {
+        "rule_set": [
+          "AdGuardSDNSFilter",
+          "AWAvenue-Ads-Rule",
+          "geosite-category-ads-all"
+        ],
+        "action": "reject"
+      }
+    ],
+    "client_subnet": "42.239.205.0",
+    "strategy": "ipv4_only",
+    "final": "dns-proxy-cf"
+  },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m0s",
+    "detour": "Smart"
+  },
+  "inbounds": [
+    {
+      "tag": "tun-in",
+      "type": "tun",
+      "interface_name": "singbox",
+      "address": [
+        "172.19.0.1/30"
+      ],
+      "mtu": 9000,
+      "stack": "system",
+      "auto_route": true,
+      "sniff_override_destination": true,
+      "strict_route": true,
+      "platform": {
+        "http_proxy": {
+          "enabled": false,
+          "server": "127.0.0.1",
+          "server_port": 7890
+        }
+      }
+    }
+  ],
+  "route": {
+    "default_domain_resolver": {
+      "server": "local-dns"
+    },
+    "auto_detect_interface": true,
+    "final": "Proxy",
+    "rules": [
+      {
+        "inbound": "tun-in",
+        "action": "sniff"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "protocol": "dns"
+          },
+          {
+            "port": 53
+          }
+        ],
+       "action": "hijack-dns"
+      },
+      {
+        "protocol": "quic",
+        "action": "reject"
+      },
+      {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "ip_is_private": true
+          },
+          {
+            "domain": "geosite-cn"
+          }
+        ],
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Direct",
+        "outbound": "direct"
+      },
+      {
+        "clash_mode": "Global",
+        "outbound": "Select"
+      },
+      {
+        "rule_set": [
+          "Crypto",
+          "Binance",
+          "OKX"
+        ],
+        "outbound": "BinOKX"
+      },
+      {
+        "rule_set": [
+          "YouTube"
+        ],
+        "outbound": "Video"
+      },
+      {
+        "rule_set": [
+          "PayPal",
+          "OpenAI",
+          "Gemini",
+          "GoogleVoice",
+          "GoogleSearch",
+          "Google"
+        ],
+        "outbound": "USRule"
+      },
+      {
+        "rule_set": [
+          "ChinaMax",
+          "geosite-cn",
+          "geosite-category-games@cn",
+          "geosite-private",
+          "geosite-apple@cn"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
+        "rule_set": "geosite-gfw",
+        "outbound": "Smart"
+      },
+      {
+        "type": "logical",
+        "mode": "and",
+        "rules": [
+          {
+            "rule_set": "geosite-geolocation-!cn"
+          },
+          {
+            "rule_set": "geoip-cn",
+            "invert": true
+          }
+        ],
+        "outbound": "Smart"
+      },
+      {
+        "rule_set": [
+          "AdGuardSDNSFilter",
+          "AWAvenue-Ads-Rule",
+          "geosite-category-ads-all"
+        ],
+        "action": "reject"
+      }
+    ],
+    "rule_set": [
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "Crypto",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Cryptocurrency/Cryptocurrency.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "Binance",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "OKX",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "PayPal",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "OpenAI",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "Gemini",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "GoogleVoice",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "GoogleSearch",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "YouTube",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "Google",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "ChinaMax",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geosite-cn",
+        "update_interval": "1d",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geosite-category-games@cn",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geosite-private",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geosite-apple@cn",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geoip-cn",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
+      },
+      {
+        "type": "remote",
+        "format": "binary",
+        "download_detour": "WS-JP",
+        "tag": "geosite-geolocation-!cn",
+        "update_interval": "1d",
+        "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
+      },
+      {
+        "tag": "geosite-gfw",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
+        "update_interval": "1d",
+        "download_detour": "WS-JP"
+      },
+      {
+        "tag": "geosite-geolocation-cn",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
+        "update_interval": "1d",
+        "download_detour": "WS-JP"
+      },
+      {
+        "type": "remote",
+        "tag": "AWAvenue-Ads-Rule",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
+        "update_interval": "1d",
+        "download_detour": "WS-JP"
+      },
+      {
+        "tag": "AdGuardSDNSFilter",
+        "type": "remote",
+        "format": "binary",
+        "update_interval": "1d",
+        "url": "https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
+        "update_interval": "1d",
+        "download_detour": "WS-JP"
+      },
+      {
+        "tag": "geosite-category-ads-all",
+        "type": "remote",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
+        "update_interval": "1d",
+        "download_detour": "WS-JP"
+      }
+    ],
+    "auto_detect_interface": true,
+    "final": "Smart"
+ },
+ "outbounds": [
+    {
+      "tag": "WS-US",
+      "type": "socks",
+      "server": "5.182.198.30",
+      "server_port": 5606,
+      "username": "jscxdejl",
+      "password": "539x44x41eqc"
+    },
+    {
+      "tag": "WS-JP",
+      "type": "socks",
+      "server": "82.23.196.104",
+      "server_port": 6810,
+      "username": "jscxdejl",
+      "password": "539x44x41eqc"
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "tag": "Smart",
+      "outbounds": [
+        "WS-JP",
+        "WS-US"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "WS-JP"
+    },
+   
+    {
+      "tag": "BinOKX",
+      "outbounds": [
+        "WS-JP",
+        "WS-US",
+        "Smart"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "WS-JP"
+    },
+    {
+      "tag": "USRule",
+      "outbounds": [
+        "WS-US",
+        "Smart"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector",
+      "default": "WS-US"
+    },
+    {
+      "tag": "Video",
+      "outbounds": [
+        "WS-JP",
+        "WS-US",
+        "Smart"
+      ],
+      "interrupt_exist_connections": true,
+      "type": "selector"
+    }
+  ]
+}
