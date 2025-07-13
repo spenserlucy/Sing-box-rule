@@ -15,7 +15,7 @@
       "external_ui": "ui",
       "secret": "",
       "external_ui_download_url": "https://github.com/MetaCubeX/Yacd-meta/archive/gh-pages.zip",
-      "external_ui_download_detour": "WebShare",
+      "external_ui_download_detour": "Smart",
       "default_mode": "Rule"
     }
   },
@@ -238,7 +238,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "Crypto",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Cryptocurrency/Cryptocurrency.srs"
@@ -246,7 +246,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "Binance",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
@@ -254,7 +254,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "OKX",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
@@ -262,7 +262,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "PayPal",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
@@ -270,7 +270,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "OpenAI",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
@@ -278,7 +278,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "Gemini",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
@@ -286,7 +286,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "GoogleVoice",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
@@ -294,7 +294,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "GoogleSearch",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
@@ -302,7 +302,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "YouTube",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
@@ -310,7 +310,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "Google",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
@@ -318,7 +318,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "ChinaMax",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/shangguanhongxin/for-sing-box-and-surge/master/sing-box/ChinaMax/ChinaMax_All.srs"
@@ -326,7 +326,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geosite-cn",
         "update_interval": "1d",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/cn.srs"
@@ -334,7 +334,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geosite-category-games@cn",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-category-games@cn.srs"
@@ -342,7 +342,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geosite-private",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-private.srs"
@@ -350,7 +350,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geosite-apple@cn",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/CHIZI-0618/v2ray-rules-dat/release/singbox_rule_set/geosite-apple@cn.srs"
@@ -358,7 +358,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geoip-cn",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geoip/cn.srs"
@@ -366,7 +366,7 @@
       {
         "type": "remote",
         "format": "binary",
-        "download_detour": "WebShare",
+        "download_detour": "Smart",
         "tag": "geosite-geolocation-!cn",
         "update_interval": "1d",
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
@@ -377,7 +377,7 @@
         "format": "binary",
         "url": "https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
         "update_interval": "1d",
-        "download_detour": "WebShare"
+        "download_detour": "Smart"
       },
       {
         "tag": "geosite-geolocation-cn",
@@ -385,7 +385,7 @@
         "format": "binary",
         "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
         "update_interval": "1d",
-        "download_detour": "WebShare"
+        "download_detour": "Smart"
       },
       {
         "type": "remote",
@@ -393,7 +393,7 @@
         "format": "binary",
         "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
         "update_interval": "1d",
-        "download_detour": "WebShare"
+        "download_detour": "Smart"
       },
       {
         "tag": "AdGuardSDNSFilter",
@@ -402,7 +402,7 @@
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
         "update_interval": "1d",
-        "download_detour": "WebShare"
+        "download_detour": "Smart"
       },
       {
         "tag": "geosite-category-ads-all",
@@ -410,29 +410,13 @@
         "format": "binary",
         "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
         "update_interval": "1d",
-        "download_detour": "WebShare"
+        "download_detour": "Smart"
       }
     ],
     "auto_detect_interface": true,
     "final": "Smart"
  },
  "outbounds": [
-    {
-      "tag": "WS-US",
-      "type": "socks",
-      "server": "5.182.198.30",
-      "server_port": 5606,
-      "username": "jscxdejl",
-      "password": "539x44x41eqc"
-    },
-    {
-      "tag": "WS-JP",
-      "type": "socks",
-      "server": "82.23.196.104",
-      "server_port": 6810,
-      "username": "jscxdejl",
-      "password": "539x44x41eqc"
-    },
     {
       "type": "direct",
       "tag": "direct"
@@ -444,22 +428,11 @@
         "TW",
         "JP",
         "CTC200",
-        "CTC300",
-        "WebShare"
+        "CTC300"
       ],
       "interrupt_exist_connections": true,
       "type": "selector",
       "default": "SG"
-    },
-    {
-      "tag": "WebShare",
-      "outbounds": [
-        "WS-JP",
-        "WS-US"
-      ],
-      "interrupt_exist_connections": true,
-      "type": "selector",
-      "default": "WS-JP"
     },
     {
       "tag": "BinOKX",
@@ -477,7 +450,6 @@
       "tag": "USRule",
       "outbounds": [
         "US",
-        "WS-US",
         "Smart"
       ],
       "interrupt_exist_connections": true,
@@ -489,7 +461,6 @@
       "outbounds": [
         "CTC200",
         "CTC300",
-        "WebShare",
         "Smart"
       ],
       "interrupt_exist_connections": true,
@@ -555,7 +526,6 @@
       "tolerance": 50,
       "tag": "JP",
       "outbounds": [
-        "WS-JP",
         "{all}"
       ],
       "filter": [
@@ -631,11 +601,8 @@
       "type": "selector",
       "tag": "Select",
       "outbounds": [
-        "{all}",
-        "WS-JP",
-        "WS-US"
-      ],
-       "default": "WS-JP"
+        "{all}"
+      ]
     }
   ]
 }
