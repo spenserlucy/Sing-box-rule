@@ -108,8 +108,6 @@
     "default_domain_resolver": {
       "server": "local-dns"
     },
-    "auto_detect_interface": true,
-    "final": "dns-proxy-cf",
     "rules": [
       {
         "action": "sniff"
@@ -145,6 +143,17 @@
         "outbound": "direct"
       },
       {
+        "rule_set": [
+          "ChinaMax",
+          "geosite-cn",
+          "geosite-category-games@cn",
+          "geosite-private",
+          "geosite-apple@cn"
+        ],
+        "action": "route",
+        "outbound": "direct"
+      },
+      {
         "clash_mode": "Direct",
         "outbound": "direct"
       },
@@ -176,17 +185,6 @@
           "Google"
         ],
         "outbound": "USRule"
-      },
-      {
-        "rule_set": [
-          "ChinaMax",
-          "geosite-cn",
-          "geosite-category-games@cn",
-          "geosite-private",
-          "geosite-apple@cn"
-        ],
-        "action": "route",
-        "outbound": "direct"
       },
       {
         "rule_set": "geosite-gfw",
