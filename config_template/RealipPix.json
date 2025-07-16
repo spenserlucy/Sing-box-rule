@@ -21,27 +21,35 @@
   },
   "dns": {
     "servers": [
-      {
-        "tag": "dns_resolver-tx",
-        "type": "tls",
-        "server": "119.29.29.29"
-      },
-      {
-        "tag": "local-dns",
-        "type": "https",
-        "server": "120.53.53.53"
-      },
-      {
-        "tag": "dns-proxy-cf",
-        "type": "https",
-        "server": "162.159.36.1",
-        "detour": "Smart"
-      }
+     {
+      "type": "https",
+      "tag": "doh-google",
+      "server": "dns.google",
+      "domain_resolver": "udp-cf",
+      "detour": "Smart"
+    },
+    {
+      "type": "https",
+      "tag": "doh-cf",
+      "server": "cloudflare-dns.com",
+      "domain_resolver": "udp-cf",
+      "detour": "Smart"
+    },
+    {
+      "type": "udp",
+      "tag": "udp-cf",
+      "server": "1.1.1.1"
+    },
+    {
+      "type": "udp",
+      "tag": "udp-cn",
+      "server": "223.5.5.5"
+    }
     ],
     "rules": [
       {
         "clash_mode": "Direct",
-        "server": "local-dns"
+        "server": "udp-cn"
       },
       {
         "clash_mode": "Global",
@@ -62,7 +70,7 @@
           "Google",
           "geosite-geolocation-!cn"
         ],
-        "server": "dns-proxy-cf"
+        "server": "doh-google"
       },
       {
         "rule_set": [
@@ -74,7 +82,7 @@
           "geosite-apple@cn",
           "geoip-cn"
         ],
-        "server": "dns-proxy-cf"
+        "server": "udp-cn"
       },
       {
         "query_type": "HTTPS",
@@ -91,7 +99,7 @@
     ],
     "client_subnet": "42.239.205.0",
     "strategy": "ipv4_only",
-    "final": "dns-proxy-cf"
+    "final": "doh-cf"
   },
  "inbounds": [
     {
@@ -106,7 +114,7 @@
   ],
   "route": {
     "default_domain_resolver": {
-      "server": "local-dns"
+      "server": "udp-cn"
     },
     "rules": [
       {
@@ -159,7 +167,7 @@
       },
       {
         "clash_mode": "Global",
-        "outbound": "Select"
+        "outbound": "Smart"
       },
       {
         "rule_set": [
