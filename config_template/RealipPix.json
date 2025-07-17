@@ -25,13 +25,13 @@
       "type": "https",
       "tag": "doh-google",
       "server": "dns.google",
-      "detour": "TW-C20-2.0"
+      "detour": "Smart"
     },
     {
       "type": "https",
       "tag": "doh-cf",
       "server": "cloudflare-dns.com",
-      "detour": "TW-C20-2.0"
+      "detour": "Smart"
     },
     {
        "type": "udp",
