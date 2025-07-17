@@ -99,6 +99,13 @@
     "strategy": "ipv4_only",
     "final": "doh-cf"
   },
+  "ntp": {
+  "enabled": true,
+  "server": "time.google.com",
+  "server_port": 123,
+  "interval": "30m0s",
+  "detour": "Smart" 
+  },
  "inbounds": [
     {
       "type": "tun",
