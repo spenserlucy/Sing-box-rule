@@ -84,7 +84,7 @@
       },
       {
         "query_type": "HTTPS",
-        "action": "doh-cf"
+        "server": "doh-cf"
       },
       {
         "rule_set": [
