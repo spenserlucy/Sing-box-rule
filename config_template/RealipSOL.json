@@ -124,7 +124,7 @@
   ],
   "route": {
     "default_domain_resolver": {
-      "server": "doh-cf"
+      "server": "udp-cf"
     },
     "rules": [
       {
