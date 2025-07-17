@@ -20,25 +20,23 @@
     }
   },
   "dns": {
-    "servers": [
+     "servers": [
        {
       "type": "https",
       "tag": "doh-google",
       "server": "dns.google",
-      "domain_resolver": "udp-cf",
       "detour": "Smart"
     },
     {
       "type": "https",
       "tag": "doh-cf",
       "server": "cloudflare-dns.com",
-      "domain_resolver": "udp-cf",
       "detour": "Smart"
     },
     {
-      "type": "udp",
-      "tag": "udp-cf",
-      "server": "1.1.1.1"
+       "type": "udp",
+       "tag": "udp-cf",
+       "server": "1.1.1.1"
     },
     {
       "type": "udp",
@@ -86,7 +84,7 @@
       },
       {
         "query_type": "HTTPS",
-        "action": "reject"
+        "action": "doh-cf"
       },
       {
         "rule_set": [
@@ -116,23 +114,17 @@
       "address": [
         "172.19.0.1/30"
       ],
-      "mtu": 9000,
+      "mtu": 1500,
       "stack": "system",
       "auto_route": true,
-      "sniff_override_destination": true,
-      "strict_route": true,
-      "platform": {
-        "http_proxy": {
-          "enabled": false,
-          "server": "127.0.0.1",
-          "server_port": 7890
-        }
-      }
+      "sniff": true,
+      "sniff_override_destination": false,
+      "strict_route": true
     }
   ],
   "route": {
     "default_domain_resolver": {
-      "server": "udp-cn"
+      "server": "doh-cf"
     },
     "rules": [
       {
