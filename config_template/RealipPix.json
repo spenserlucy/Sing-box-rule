@@ -141,8 +141,19 @@
        "action": "hijack-dns"
       },
       {
-        "protocol": "quic",
-        "action": "reject"
+  "type": "logical",
+  "mode": "and",
+  "rules": [
+    { "protocol": "quic" },
+    {
+      "rule_set": [
+        "AdGuardSDNSFilter",
+        "AWAvenue-Ads-Rule",
+        "geosite-category-ads-all"
+      ]
+    }
+  ],
+  "action": "reject"
       },
       {
         "type": "logical",
