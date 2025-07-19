@@ -182,6 +182,43 @@
         "action": "route",
         "outbound": "direct"
       },
+       {
+        "type": "logical",
+        "mode": "or",
+        "rules": [
+          {
+            "domain_suffix": "t.me"
+          },
+          {
+            "domain_keyword": "telegram"
+          },
+          {
+            "domain": "telegram-cdn.org"
+          },
+          {
+            "domain": "cdn-telegram.org"
+          },
+          {
+            "ip_cidr": "149.154.160.0/20"
+          },
+          {
+            "ip_cidr": "91.108.4.0/22"
+          },
+          {
+            "ip_cidr": "91.108.8.0/22"
+          },
+          {
+            "ip_cidr": "91.108.12.0/22"
+          },
+          {
+            "ip_cidr": "91.108.16.0/22"
+          },
+          {
+            "ip_cidr": "91.108.56.0/22"
+          }
+        ],
+        "outbound": "Smart"
+      },
       {
         "clash_mode": "Direct",
         "outbound": "direct"
