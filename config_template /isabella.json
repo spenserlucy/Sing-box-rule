@@ -21,82 +21,24 @@
   },
   "dns": {
      "servers": [
-       {
-      "type": "https",
-      "tag": "doh-google",
-      "server": "dns.google",
-      "detour": "Smart"
-    },
-    {
-      "type": "https",
-      "tag": "doh-cf",
-      "server": "cloudflare-dns.com",
-      "detour": "Smart"
-    },
-    {
-       "type": "udp",
-       "tag": "udp-cf",
-       "server": "1.1.1.1"
-    },
-    {
-      "type": "udp",
-      "tag": "udp-cn",
-      "server": "223.5.5.5"
-    }
-    ],
-    "rules": [
-      {
-        "clash_mode": "Direct",
-        "server": "udp-cn"
+     {
+        "type": "local", 
+        "tag": "local" 
       },
       {
-        "clash_mode": "Global",
-        "server": "doh-cf"
-      },
-      {
-        "rule_set": [
-          "Crypto",
-          "Binance",
-          "OKX",
-          "PayPal",
-          "OpenAI",
-          "Gemini",
-          "GoogleVoice",
-          "GoogleSearch",
-          "geosite-gfw",
-          "YouTube",
-          "Google",
-          "geosite-geolocation-!cn"
-        ],
-        "server": "doh-google"
-      },
-      {
-        "rule_set": [
-          "ChinaMax",
-          "geosite-cn",
-          "geosite-category-games@cn",
-          "geosite-geolocation-cn",
-          "geosite-private",
-          "geosite-apple@cn",
-          "geoip-cn"
-        ],
-        "server": "udp-cn"
-      },
-      {
-        "query_type": "HTTPS",
-        "server": "doh-cf"
-      },
-      {
-        "rule_set": [
-          "AdGuardSDNSFilter",
-          "AWAvenue-Ads-Rule",
-          "geosite-category-ads-all"
-        ],
-        "action": "reject"
+        "tag": "doh-cf",
+        "server": "d.adguard-dns.com",
+        "type": "https",
+        "server_port": 443,
+        "tls": {
+          "enabled": true,
+          "server_name": "d.adguard-dns.com"
+        },
+        "detour": "Smart",
+        "path": "/dns-query/c131f748"
       }
     ],
-    "client_subnet": "42.239.205.0",
-    "strategy": "ipv4_only",
+    "rules": 
     "final": "doh-cf"
   },
   "ntp": {
@@ -110,16 +52,12 @@
     {
       "tag": "tun-in",
       "type": "tun",
-      "interface_name": "singbox",
-      "address": [
-        "172.19.0.1/30"
-      ],
+      "address": ["172.19.0.1/30"],
+      "auto_route": true,
       "mtu": 1500,
       "stack": "system",
-      "auto_route": true,
-      "sniff": true,
-      "sniff_override_destination": false,
-      "strict_route": true
+      "strict_route": true,
+      "route_exclude_address_set": ["geoip-cn"]
     }
   ],
   "route": {
@@ -142,21 +80,6 @@
           }
         ],
        "action": "hijack-dns"
-      },
-      {
-  "type": "logical",
-  "mode": "and",
-  "rules": [
-    { "protocol": "quic" },
-    {
-      "rule_set": [
-        "AdGuardSDNSFilter",
-        "AWAvenue-Ads-Rule",
-        "geosite-category-ads-all"
-      ]
-    }
-  ],
-  "action": "reject"
       },
       {
         "type": "logical",
@@ -182,43 +105,6 @@
         "action": "route",
         "outbound": "direct"
       },
-       {
-        "type": "logical",
-        "mode": "or",
-        "rules": [
-          {
-            "domain_suffix": "t.me"
-          },
-          {
-            "domain_keyword": "telegram"
-          },
-          {
-            "domain": "telegram-cdn.org"
-          },
-          {
-            "domain": "cdn-telegram.org"
-          },
-          {
-            "ip_cidr": "149.154.160.0/20"
-          },
-          {
-            "ip_cidr": "91.108.4.0/22"
-          },
-          {
-            "ip_cidr": "91.108.8.0/22"
-          },
-          {
-            "ip_cidr": "91.108.12.0/22"
-          },
-          {
-            "ip_cidr": "91.108.16.0/22"
-          },
-          {
-            "ip_cidr": "91.108.56.0/22"
-          }
-        ],
-        "outbound": "Smart"
-      },
       {
         "clash_mode": "Direct",
         "outbound": "direct"
@@ -229,32 +115,9 @@
       },
       {
         "rule_set": [
-          "Crypto",
-          "Binance",
-          "OKX"
-        ],
-        "outbound": "BinOKX"
-      },
-      {
-        "rule_set": [
           "YouTube"
         ],
         "outbound": "Video"
-      },
-      {
-        "rule_set": [
-          "PayPal",
-          "OpenAI",
-          "Gemini",
-          "GoogleVoice",
-          "GoogleSearch",
-          "Google"
-        ],
-        "outbound": "USRule"
-      },
-      {
-        "rule_set": "geosite-gfw",
-        "outbound": "Smart"
       },
       {
         "type": "logical",
@@ -269,81 +132,9 @@
           }
         ],
         "outbound": "Smart"
-      },
-      {
-        "rule_set": [
-          "AdGuardSDNSFilter",
-          "AWAvenue-Ads-Rule",
-          "geosite-category-ads-all"
-        ],
-        "action": "reject"
       }
     ],
-    "rule_set": [
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "Crypto",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Cryptocurrency/Cryptocurrency.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "Binance",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Binance/Binance.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "OKX",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OKX/OKX.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "PayPal",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/PayPal/PayPal.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "OpenAI",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/OpenAI/OpenAI.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "Gemini",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Gemini/Gemini.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "GoogleVoice",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleVoice/GoogleVoice.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "GoogleSearch",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/GoogleSearch/GoogleSearch.srs"
-      },
+    "rule_set": [ 
       {
         "type": "remote",
         "format": "binary",
@@ -351,14 +142,6 @@
         "tag": "YouTube",
         "update_interval": "1d",
         "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/YouTube/YouTube.srs"
-      },
-      {
-        "type": "remote",
-        "format": "binary",
-        "download_detour": "Smart",
-        "tag": "Google",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/senshinya/singbox_ruleset/main/rule/Google/Google.srs"
       },
       {
         "type": "remote",
@@ -417,43 +200,10 @@
         "url": "https://github.com/MetaCubeX/meta-rules-dat/raw/sing/geo/geosite/geolocation-!cn.srs"
       },
       {
-        "tag": "geosite-gfw",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://github.com/Toperlock/sing-box-geosite/raw/refs/heads/main/rule/gfw.srs",
-        "update_interval": "1d",
-        "download_detour": "Smart"
-      },
-      {
         "tag": "geosite-geolocation-cn",
         "type": "remote",
         "format": "binary",
         "url": "https://github.com/SagerNet/sing-geosite/raw/refs/heads/rule-set/geosite-geolocation-cn.srs",
-        "update_interval": "1d",
-        "download_detour": "Smart"
-      },
-      {
-        "type": "remote",
-        "tag": "AWAvenue-Ads-Rule",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/TG-Twilight/AWAvenue-Ads-Rule/main/Filters/AWAvenue-Ads-Rule-Singbox.srs",
-        "update_interval": "1d",
-        "download_detour": "Smart"
-      },
-      {
-        "tag": "AdGuardSDNSFilter",
-        "type": "remote",
-        "format": "binary",
-        "update_interval": "1d",
-        "url": "https://raw.githubusercontent.com/xmdhs/sing-box-ruleset/rule-set/AdGuardSDNSFilter.srs",
-        "update_interval": "1d",
-        "download_detour": "Smart"
-      },
-      {
-        "tag": "geosite-category-ads-all",
-        "type": "remote",
-        "format": "binary",
-        "url": "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ads-all.srs",
         "update_interval": "1d",
         "download_detour": "Smart"
       }
@@ -464,7 +214,10 @@
  "outbounds": [
     {
       "type": "direct",
-      "tag": "direct"
+      "tag": "direct",
+      "domain_resolver": {
+        "server": "local"
+      }
     },
     {
       "tag": "Smart",
@@ -632,12 +385,6 @@
           "action": "include",
           "keywords": [
             "-A-"
-          ]
-        },
-        {
-          "action": "exclude",
-          "keywords": [
-            "100.0倍率|200.0倍率"
           ]
         }
       ]
