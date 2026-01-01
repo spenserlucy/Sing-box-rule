@@ -1,2 +1,3 @@
 mp.weixin.qq.com
 mp.toutiao.com
+badjs.weixinbridge.com
