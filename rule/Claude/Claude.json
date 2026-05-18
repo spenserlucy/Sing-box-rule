@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "rules": [
     {
       "domain_suffix": [
@@ -13,7 +13,8 @@
         "sentry.io",
         "statsigapi.net",
         "intercom.io",
-        "intercomcdn.com"
+        "intercomcdn.com",
+        "claudeusercontent.com"
       ],
       "domain": [
         "servd-anthropic-website.b-cdn.net",
