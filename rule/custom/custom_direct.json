@@ -2,26 +2,10 @@
   "rules": [
     {
       "domain": [
-        "blzddist1-a.akamaihd.net",
-        "kc.kexinshe.com",
-        "steamcommunity-a.akamaihd.net",
-        "images-cn.ssl-images-amazon.com",
-        "download.jetbrains.com",
-        "ip.istatmenus.app",
-        "origin-a.akamaihd.net",
-        "www.libvideo.com",
-        "analytics.strava.com",
-        "cdn.angruo.com",
-        "ntservicepack.microsoft.com",
-        "sms.imagetasks.com",
-        "weixin.com",
-        "client.amplifi.com",
-        "origin-a.akamaihd.ne",
-        "www.yxssp.com"
+        "www.baidu.com"
       ],
       "domain_keyword": [
         "baidu",
-        "officecdn",
         "alipay",
         "aliyun",
         "alicdn",
@@ -33,30 +17,22 @@
         "bilibili.com",
         "qq.com",
         "douyin.com",
-        "kuaishou.com"  
+        "weixin.com",
+        "baidu.com",
+        "tmall.com",
+        "kuaishou.com"
       ],
       "ip_cidr": [
-        "185.188.35.0/24",
-        "185.188.32.0/24",
         "203.205.238.0/23",
         "203.205.254.0/23",
-        "101.32.118.0/23",
+        "101.32.96.0/20",
+        "182.254.116.0/24",
         "119.28.28.28/32",
         "185.188.32.0/22",
-        "185.188.33.0/24",
-        "129.226.0.0/16",
-        "2a0b:b583::/48",
-        "101.32.96.0/20",
-        "183.131.48.0/20",
         "2a0b:b580::/48",
-        "185.188.34.0/24",
-        "1.255.62.0/24",
-        "182.254.116.0/24",
-        "2a0b:b582::/48",
-        "101.32.104.0/21",
-        "183.128.0.0/11",
         "2a0b:b581::/48",
-        "120.195.181.180/32"
+        "2a0b:b582::/48",
+        "2a0b:b583::/48"
       ]
     }
   ],
