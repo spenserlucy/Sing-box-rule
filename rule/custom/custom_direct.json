@@ -48,7 +48,8 @@
         "me.com",
         "mzstatic.com",
         "apple-cloudkit.com",
-        "weixinbridge.com"
+        "weixinbridge.com",
+        "code-abc.com"
       ],
       "ip_cidr": [
         "43.160.156.0/24",
