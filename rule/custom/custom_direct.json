@@ -3,7 +3,6 @@
     {
       "domain": [
         "blzddist1-a.akamaihd.net",
-        "download.microsoft.com",
         "kc.kexinshe.com",
         "steamcommunity-a.akamaihd.net",
         "images-cn.ssl-images-amazon.com",
@@ -28,8 +27,7 @@
         "alicdn",
         ".tmall.com",
         "beplay",
-        "taobao",
-        "microsoft"
+        "taobao"
       ],
       "domain_suffix": [
         "owsgo.com",
