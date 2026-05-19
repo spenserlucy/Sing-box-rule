@@ -14,17 +14,21 @@
         "alicdn",
         ".tmall.com",
         "beplay",
-        "taobao"
+        "taobao",
+        "wechat"
       ],
       "domain_suffix": [
         "bilibili.com",
         "qq.com",
         "douyin.com",
         "weixin.com",
+        "wechat.com",
         "baidu.com",
         "tmall.com",
         "kuaishou.com",
-        "bdstatic.com"
+        "bdstatic.com",
+        "cyapi.cn",
+        "caiyunapp.com"
       ],
       "ip_cidr": [
         "203.205.238.0/23",
