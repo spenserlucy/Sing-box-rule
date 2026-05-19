@@ -1,0 +1,15 @@
+{
+  "version": 3,
+  "rules": [
+    {
+      "domain_suffix": [
+        "linux.do"
+      ]
+      ],
+      "domain_keyword": [
+        "linux"
+      ]
+      ]
+    }
+  ]
+}
