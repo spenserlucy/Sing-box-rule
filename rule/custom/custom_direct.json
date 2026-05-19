@@ -35,7 +35,8 @@
         "icloud-content.com",
         "me.com",
         "mzstatic.com",
-        "apple-cloudkit.com"
+        "apple-cloudkit.com",
+        "weixinbridge.com"
       ],
       "ip_cidr": [
         "203.205.238.0/23",
