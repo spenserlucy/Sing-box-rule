@@ -29,7 +29,13 @@
         "kuaishou.com",
         "bdstatic.com",
         "cyapi.cn",
-        "caiyunapp.com"
+        "caiyunapp.com",
+        "apple.com",
+        "icloud.com",
+        "icloud-content.com",
+        "me.com",
+        "mzstatic.com",
+        "apple-cloudkit.com"
       ],
       "ip_cidr": [
         "203.205.238.0/23",
