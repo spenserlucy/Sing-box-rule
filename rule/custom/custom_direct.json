@@ -3,7 +3,9 @@
     {
       "domain": [
         "mmbiz.qpic.cn",
-        "badjs.weixinbridge.com"
+        "badjs.weixinbridge.com",
+        "bdstatic.com",
+        "baikebcs.bdimg.com"
       ],
       "domain_keyword": [
         "baidu",
@@ -21,7 +23,8 @@
         "weixin.com",
         "baidu.com",
         "tmall.com",
-        "kuaishou.com"
+        "kuaishou.com",
+        "bdstatic.com"
       ],
       "ip_cidr": [
         "203.205.238.0/23",
