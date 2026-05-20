@@ -63,10 +63,13 @@
         "wechat.com",
         "weixinbridge.com",
         "wskwai.com",
+        "xiaohongshu.com",
+        "xhscdn.com",
         "yhgfb-cn-static.com",
         "zijieapi.com"   
       ],
       "ip_cidr": [
+        "43.168.224.0/24",
         "43.160.156.0/24",
         "203.205.238.0/23",
         "203.205.254.0/23",
