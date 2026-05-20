@@ -2,20 +2,20 @@
   "rules": [
     {
       "domain": [
-        "mmbiz.qpic.cn",
         "badjs.weixinbridge.com",
         "bdstatic.com",
         "baikebcs.bdimg.com",
-        "creator.amemv.com"
+        "creator.amemv.com",
+        "mmbiz.qpic.cn"
       ],
       "domain_keyword": [
-        "baidu",
         "alipay",
         "aliyun",
         "alicdn",
-        ".tmall.com",
+        "baidu",
         "beplay",
         "taobao",
+        "tencent",
         "wechat"
       ],
       "domain_suffix": [
@@ -46,6 +46,8 @@
         "qq.com",
         "tmall.com",
         "toutiao.com",
+        "tencent.com",
+        "tmall.com",
         "weixin.com",
         "wechat.com",
         "weixinbridge.com",
