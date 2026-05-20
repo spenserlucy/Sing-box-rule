@@ -35,7 +35,7 @@
         "douyinstatic.com",
         "bytedance.com",
         "douyin.com",
-        "duolingo.com"
+        "duolingo.com",
         "hdslb.com",
         "ibytedapm.com",
         "icloud.com",
@@ -49,7 +49,7 @@
         "weixin.com",
         "wechat.com",
         "weixinbridge.com",
-        "zijieapi.com",   
+        "zijieapi.com"   
       ],
       "ip_cidr": [
         "43.160.156.0/24",
