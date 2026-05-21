@@ -4,7 +4,8 @@
     {
       "domain_suffix": [
         "linux.do",
-        "idcflare.com"
+        "idcflare.com",
+        "cloudflare-ech.com"
       ]
     }
   ]
