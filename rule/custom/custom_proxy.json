@@ -5,7 +5,8 @@
       "domain_suffix": [
         "linux.do",
         "idcflare.com",
-        "cloudflare-ech.com"
+        "cloudflare-ech.com",
+        "challenges.cloudflare.com"
       ]
     }
   ]
