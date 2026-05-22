@@ -2,7 +2,6 @@
   "rules": [
     {
       "domain": [
-        "badjs.weixinbridge.com",
         "bdstatic.com",
         "baikebcs.bdimg.com",
         "creator.amemv.com",
