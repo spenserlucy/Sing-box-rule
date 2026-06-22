@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "52ccl.cn",
         "linux.do",
         "idcflare.com",
         "cloudflare-ech.com",
