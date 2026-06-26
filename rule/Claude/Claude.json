@@ -13,8 +13,7 @@
         "sentry.io",
         "statsigapi.net",
         "intercom.io",
-        "intercomcdn.com",
-        "openrouter.ai"
+        "intercomcdn.com"
       ],
       "domain": [
         "servd-anthropic-website.b-cdn.net",
