@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "52ccl.cn",
         "anthropic.com",
         "claude.ai",
         "claude.com",
