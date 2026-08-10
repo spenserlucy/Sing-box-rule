@@ -3,7 +3,9 @@
   "rules": [
     {
       "domain_suffix": [
-        "creator.douyin.com"
+        "cloudflare-ech.com",
+        "challenges.cloudflare.com",
+        "cloudflare-dns.com"
       ]
     }
   ]
