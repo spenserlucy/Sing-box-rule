@@ -4,12 +4,7 @@
   "rules": [
     {
       "domain_suffix": [
-        "anyrouter.top",
-        "linux.do",
-        "idcflare.com",
-        "cloudflare-ech.com",
-        "challenges.cloudflare.com",
-        "cloudflare-dns.com"
+       "creator.douyin.com"
       ]
     }
   ]
