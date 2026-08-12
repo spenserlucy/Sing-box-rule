@@ -3,9 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
-        "cloudflare-ech.com",
-        "challenges.cloudflare.com",
-        "cloudflare-dns.com"
+         "anyrouter.top"
       ]
     }
   ]
