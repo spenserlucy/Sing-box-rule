@@ -4,14 +4,7 @@
   "rules": [
     {
       "domain": [
-        "creator.douyin.com",
-        "lf-fe-creator.douyinstatic.com",
-        "sf3-cdn-tos.douyinstatic.com",
-        "auth.zijieapi.com",
-        "security.zijieapi.com",
-        "lf-fe-douyin-account.amemv.com",
-        "vod.bytedanceapi.com",
-        "tos-hlcu-040051210.douyin.com"
+        "creator.douyin.com"
       ]
     }
   ]
