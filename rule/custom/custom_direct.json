@@ -3,12 +3,14 @@
   "rules": [
     {
       "domain": [
+        "a.nel.cloudflare.com",
         "ai.52ccl.cn",
         "baikebcs.bdimg.com",
         "bdstatic.com",
         "creator.amemv.com",
         "invite.linuxdo.org",
         "mmbiz.qpic.cn"
+        
       ],
       "domain_suffix": [
         "126.com",
@@ -24,6 +26,7 @@
         "byteeffecttos.com",
         "code-abc.com",
         "cxapk.com",
+        "cloudflare-ech.com",
         "dianping.com",
         "douyin.com",
         "douyincdn.com",
