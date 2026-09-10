@@ -2,9 +2,9 @@
   "version": 3,
   "rules": [
     {
-      "domain": [
-        "api.42w.shop",
-        "ai.hybgzs.com"
+      "domain_suffix": [
+        "42w.shop",
+        "hybgzs.com"
       ]
     }
   ]
