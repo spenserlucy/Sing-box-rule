@@ -62,6 +62,9 @@
         "xhscdn.net",
         "youdao.com",
         "zhihu.com"
+      ],
+      "ip_cidr": [
+        "47.115.49.124/32"
       ]
     }
   ]
