@@ -3,13 +3,13 @@
   "rules": [
     {
       "domain": [
+        "ai-gateway.edgeone.link",
         "ai.52ccl.cn",
         "baikebcs.bdimg.com",
         "bdstatic.com",
         "creator.amemv.com",
         "invite.linuxdo.org",
         "mmbiz.qpic.cn"
-        
       ],
       "domain_suffix": [
         "126.com",
