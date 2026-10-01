@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+        "abrdns.com",
         "aihub.top",
         "aiapi.bot",
         "axis.fan",
