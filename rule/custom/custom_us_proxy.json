@@ -3,6 +3,7 @@
   "rules": [
     {
       "domain_suffix": [
+         "agentrouter.org",
          "muse.ai",
          "meta.com"
       ]
