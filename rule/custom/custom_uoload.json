@@ -2,6 +2,7 @@
   "version": 2,
   "rules": [
     {
+    "domain_suffix": [
       "play.google.com",
       "studio.youtube.com",
       "upload.youtube.com"
