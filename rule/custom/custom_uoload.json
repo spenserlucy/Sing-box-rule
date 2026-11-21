@@ -5,7 +5,8 @@
     "domain_suffix": [
       "play.google.com",
       "studio.youtube.com",
-      "upload.youtube.com"
+      "upload.youtube.com",
+      "play.googleapis.com"
       
       ]
     }
